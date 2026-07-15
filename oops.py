@@ -335,92 +335,92 @@
 
 
 # Single Inheritance
-class Animal:
+# class Animal:
 
-    def eat(self):
-        print("Animals eat food")
-
-
-class Dog(Animal):
-
-    def bark(self):
-        print("Dog barks")
+#     def eat(self):
+#         print("Animals eat food")
 
 
-d = Dog()
+# class Dog(Animal):
 
-d.eat()
-d.bark()
-
-
-# Multiple Inheritance
-class Father:
-    def skill1(self):
-        print("Driving")
+#     def bark(self):
+#         print("Dog barks")
 
 
-class Mother:
-    def skill2(self):
-        print("Cooking")
+# d = Dog()
+
+# d.eat()
+# d.bark()
 
 
-class Child(Father, Mother):
-    def skill3(self):
-        print("Playing")
+# # Multiple Inheritance
+# class Father:
+#     def skill1(self):
+#         print("Driving")
 
 
-c = Child()
-c.skill1()
-c.skill2()
-c.skill3()
+# class Mother:
+#     def skill2(self):
+#         print("Cooking")
 
 
-# Multilevel Inheritance
+# class Child(Father, Mother):
+#     def skill3(self):
+#         print("Playing")
 
 
-class Grandfather:
-    def house(self):
-        print("Grandfather's house")
+# c = Child()
+# c.skill1()
+# c.skill2()
+# c.skill3()
 
 
-class Father(Grandfather):
-    def car(self):
-        print("Father's car")
+# # Multilevel Inheritance
 
 
-class Son(Father):
-    def bike(self):
-        print("Son's bike")
+# class Grandfather:
+#     def house(self):
+#         print("Grandfather's house")
 
 
-s = Son()
-
-s.house()
-s.car()
-s.bike()
+# class Father(Grandfather):
+#     def car(self):
+#         print("Father's car")
 
 
-# Hierarchical Inheritance
+# class Son(Father):
+#     def bike(self):
+#         print("Son's bike")
 
 
-class Animal:
-    def eat(self):
-        print("Animals eat food")
+# s = Son()
+
+# s.house()
+# s.car()
+# s.bike()
 
 
-class Dog(Animal):
-    pass
+# # Hierarchical Inheritance
 
 
-class Cat(Animal):
-    pass
+# class Animal:
+#     def eat(self):
+#         print("Animals eat food")
 
 
-d = Dog()
-c = Cat()
+# class Dog(Animal):
+#     pass
 
-d.eat()
-c.eat()
+
+# class Cat(Animal):
+#     pass
+
+
+# d = Dog()
+# c = Cat()
+
+# d.eat()
+# c.eat()
 
 
 """
@@ -434,6 +434,61 @@ c.eat()
 # Method Overriding in Inheritance : Sometimes a child class modifies the method of the parent class.
 
 
+# class Animal:
+
+#     def sound(self):
+#         print("Animals make sound")
+
+
+# class Dog(Animal):
+
+#     def sound(self):
+#         super().sound()
+#         print("Dog barks")
+
+
+# d = Dog()
+# d.sound()
+
+
+# Using super() in Inheritance : super() is used to call parent class methods inside the child class.
+
+
+# class Person:
+
+#     def __init__(self, name):
+#         self.name = name
+
+
+# class Student(Person):
+
+#     def __init__(self, name, marks):
+#         super().__init__(name)
+#         self.marks = marks
+
+
+# s = Student("Ansh", 95)
+
+# print(s.name)
+# print(s.marks)
+
+
+# Method Overloading (Compile-Time Polymorphism) :
+
+
+class Math:
+
+    def add(self, a, b, c=0):
+        return a + b + c
+
+
+m = Math()
+
+print(m.add(5, 3))
+print(m.add(5, 3, 2))
+
+
+# Method Overriding (Runtime Polymorphism) :
 class Animal:
 
     def sound(self):
@@ -443,31 +498,90 @@ class Animal:
 class Dog(Animal):
 
     def sound(self):
-        super().sound()
         print("Dog barks")
 
 
+class Cat(Animal):
+
+    def sound(self):
+        print("Cat meows")
+
+
 d = Dog()
+c = Cat()
+
 d.sound()
+c.sound()
 
 
-# Using super() in Inheritance : super() is used to call parent class methods inside the child class.
+class Dog:
+    def sound(self):
+        print("Dog barks")
 
 
-class Person:
-
-    def __init__(self, name):
-        self.name = name
-
-
-class Student(Person):
-
-    def __init__(self, name, marks):
-        super().__init__(name)
-        self.marks = marks
+class Cat:
+    def sound(self):
+        print("Cat meows")
 
 
-s = Student("Ansh", 95)
+def make_sound(animal):
+    animal.sound()
 
-print(s.name)
-print(s.marks)
+
+d = Dog()
+c = Cat()
+
+make_sound(d)
+make_sound(c)
+
+
+class Circle:
+    def area(self):
+        print("Area of Circle")
+
+
+class Rectangle:
+    def area(self):
+        print("Area of Rectangle")
+
+
+class Triangle:
+    def area(self):
+        print("Area of Triangle")
+
+
+shapes = [Circle(), Rectangle(), Triangle()]
+
+for s in shapes:
+    s.area()
+
+
+from abc import ABC, abstractmethod
+
+
+class Shape(ABC):
+
+    @abstractmethod
+    def area(self):
+        pass
+
+
+class Rectangle(Shape):
+
+    def area(self):
+        print("Area of Rectangle")
+
+
+class Circle(Shape):
+
+    def area(self):
+        print("Area of Circle")
+
+    # pass
+
+
+r = Rectangle()
+c = Circle()
+
+r.area()
+c.area()
