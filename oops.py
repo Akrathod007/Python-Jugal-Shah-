@@ -175,101 +175,299 @@
 # print(p2.lastname)
 
 
-class Calculator:
-    def add(self, a, b):
-        return a + b
+# class Calculator:
+#     def add(self, a, b):
+#         return a + b
 
-    def multiply(self, a, b):
-        return a * b
-
-
-calc = Calculator()
-print(calc.add(5, 3))
-print(calc.multiply(4, 7))
+#     def multiply(self, a, b):
+#         return a * b
 
 
-class Person:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-
-    def celebrate_birthday(self):
-        self.age += 1
-        print(f"Happy birthday! You are now {self.age}")
+# calc = Calculator()
+# print(calc.add(5, 3))
+# print(calc.multiply(4, 7))
 
 
-p1 = Person("Ram", 25)
-p1.celebrate_birthday()
-p1.celebrate_birthday()
+# class Person:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+
+#     def celebrate_birthday(self):
+#         self.age += 1
+#         print(f"Happy birthday! You are now {self.age}")
 
 
-class Person:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+# p1 = Person("Ram", 25)
+# p1.celebrate_birthday()
+# p1.celebrate_birthday()
 
 
-p1 = Person("Shyam", 36)
-print(p1)
+# class Person:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
 
 
-class Person:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-
-    def __str__(self):
-        return f"{self.name} ({self.age})"
+# p1 = Person("Shyam", 36)
+# print(p1)
 
 
-p1 = Person("Tilak", 36)
-print(p1)
+# class Person:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+
+#     def __str__(self):
+#         return f"{self.name} ({self.age})"
 
 
-class Playlist:
-    def __init__(self, name):
-        self.name = name
-        self.songs = []
-
-    def add_song(self, song):
-        self.songs.append(song)
-        print(f"Added: {song}")
-
-    def remove_song(self, song):
-        if song in self.songs:
-            self.songs.remove(song)
-            print(f"Removed: {song}")
-
-    def show_songs(self):
-        print(f"Playlist '{self.name}':")
-        for song in self.songs:
-            print(f"- {song}")
+# p1 = Person("Tilak", 36)
+# print(p1)
 
 
-my_playlist = Playlist("Favorites")
-my_playlist.add_song("Bohemian Rhapsody")
-my_playlist.add_song("Stairway to Heaven")
-my_playlist.show_songs()
+# class Playlist:
+#     def __init__(self, name):
+#         self.name = name
+#         self.songs = []
+
+#     def add_song(self, song):
+#         self.songs.append(song)
+#         print(f"Added: {song}")
+
+#     def remove_song(self, song):
+#         if song in self.songs:
+#             self.songs.remove(song)
+#             print(f"Removed: {song}")
+
+#     def show_songs(self):
+#         print(f"Playlist '{self.name}':")
+#         for song in self.songs:
+#             print(f"- {song}")
 
 
-xyz = Playlist("My XYZ")
-xyz.add_song("ABC")
-xyz.add_song("PQR")
-xyz.show_songs()
-xyz.remove_song("ABC")
-xyz.show_songs()
+# my_playlist = Playlist("Favorites")
+# my_playlist.add_song("Bohemian Rhapsody")
+# my_playlist.add_song("Stairway to Heaven")
+# my_playlist.show_songs()
 
 
-class Person:
-    def __init__(self, name):
-        self.name = name
+# xyz = Playlist("My XYZ")
+# xyz.add_song("ABC")
+# xyz.add_song("PQR")
+# xyz.show_songs()
+# xyz.remove_song("ABC")
+# xyz.show_songs()
 
-    def greet(self):
-        print("Hello!")
+
+# class Person:
+#     def __init__(self, name):
+#         self.name = name
+
+#     def greet(self):
+#         print("Hello!")
 
 
-p1 = Person("Emil")
+# p1 = Person("Emil")
 
-del Person.greet
+# del Person.greet
 
 # p1.greet() #Error
+
+
+# class Student:
+#     def __init__(self, name, marks):
+#         self.name = name
+#         self.__marks = marks  # private variable
+
+#     def display(self):
+#         print("Name:", self.name)
+#         print("Marks:", self.__marks)
+
+
+# s = Student("Ansh", 90)
+# s.display()
+# print(s.name)
+# # print(s.__marks) #Error
+
+
+# class Student:
+
+#     def __init__(self):
+#         self.__marks = 0
+
+#     def set_marks(self, m):
+#         if m < 0:
+#             print("Wrong Marks")
+#         else:
+#             self.__marks = m
+
+#     def get_marks(self):
+#         return self.__marks
+
+
+# s = Student()
+
+# s.set_marks(95)
+# # s.set_marks(-95)
+# print("Marks:", s.get_marks())
+
+
+# class BankAccount:
+
+#     def __init__(self, balance):
+#         self.__balance = balance
+
+#     def deposit(self, amount):
+#         self.__balance += amount
+
+#     def show_balance(self):
+#         print("Balance:", self.__balance)
+
+
+# acc = BankAccount(1000)
+
+# acc.deposit(500)
+# acc.show_balance()
+
+
+# Inheritance :
+
+
+# Single Inheritance
+class Animal:
+
+    def eat(self):
+        print("Animals eat food")
+
+
+class Dog(Animal):
+
+    def bark(self):
+        print("Dog barks")
+
+
+d = Dog()
+
+d.eat()
+d.bark()
+
+
+# Multiple Inheritance
+class Father:
+    def skill1(self):
+        print("Driving")
+
+
+class Mother:
+    def skill2(self):
+        print("Cooking")
+
+
+class Child(Father, Mother):
+    def skill3(self):
+        print("Playing")
+
+
+c = Child()
+c.skill1()
+c.skill2()
+c.skill3()
+
+
+# Multilevel Inheritance
+
+
+class Grandfather:
+    def house(self):
+        print("Grandfather's house")
+
+
+class Father(Grandfather):
+    def car(self):
+        print("Father's car")
+
+
+class Son(Father):
+    def bike(self):
+        print("Son's bike")
+
+
+s = Son()
+
+s.house()
+s.car()
+s.bike()
+
+
+# Hierarchical Inheritance
+
+
+class Animal:
+    def eat(self):
+        print("Animals eat food")
+
+
+class Dog(Animal):
+    pass
+
+
+class Cat(Animal):
+    pass
+
+
+d = Dog()
+c = Cat()
+
+d.eat()
+c.eat()
+
+
+"""
+        Vehical
+        /     \
+     NCar     SCar
+      \      /
+        ECar
+"""
+
+# Method Overriding in Inheritance : Sometimes a child class modifies the method of the parent class.
+
+
+class Animal:
+
+    def sound(self):
+        print("Animals make sound")
+
+
+class Dog(Animal):
+
+    def sound(self):
+        super().sound()
+        print("Dog barks")
+
+
+d = Dog()
+d.sound()
+
+
+# Using super() in Inheritance : super() is used to call parent class methods inside the child class.
+
+
+class Person:
+
+    def __init__(self, name):
+        self.name = name
+
+
+class Student(Person):
+
+    def __init__(self, name, marks):
+        super().__init__(name)
+        self.marks = marks
+
+
+s = Student("Ansh", 95)
+
+print(s.name)
+print(s.marks)
