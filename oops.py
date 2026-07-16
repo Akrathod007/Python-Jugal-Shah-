@@ -476,112 +476,286 @@
 # Method Overloading (Compile-Time Polymorphism) :
 
 
-class Math:
+# class Math:
 
-    def add(self, a, b, c=0):
-        return a + b + c
-
-
-m = Math()
-
-print(m.add(5, 3))
-print(m.add(5, 3, 2))
+#     def add(self, a, b, c=0):
+#         return a + b + c
 
 
-# Method Overriding (Runtime Polymorphism) :
-class Animal:
+# m = Math()
 
-    def sound(self):
-        print("Animals make sound")
-
-
-class Dog(Animal):
-
-    def sound(self):
-        print("Dog barks")
+# print(m.add(5, 3))
+# print(m.add(5, 3, 2))
 
 
-class Cat(Animal):
+# # Method Overriding (Runtime Polymorphism) :
+# class Animal:
 
-    def sound(self):
-        print("Cat meows")
-
-
-d = Dog()
-c = Cat()
-
-d.sound()
-c.sound()
+#     def sound(self):
+#         print("Animals make sound")
 
 
-class Dog:
-    def sound(self):
-        print("Dog barks")
+# class Dog(Animal):
+
+#     def sound(self):
+#         print("Dog barks")
 
 
-class Cat:
-    def sound(self):
-        print("Cat meows")
+# class Cat(Animal):
+
+#     def sound(self):
+#         print("Cat meows")
 
 
-def make_sound(animal):
-    animal.sound()
+# d = Dog()
+# c = Cat()
+
+# d.sound()
+# c.sound()
 
 
-d = Dog()
-c = Cat()
-
-make_sound(d)
-make_sound(c)
+# class Dog:
+#     def sound(self):
+#         print("Dog barks")
 
 
-class Circle:
-    def area(self):
-        print("Area of Circle")
+# class Cat:
+#     def sound(self):
+#         print("Cat meows")
 
 
-class Rectangle:
-    def area(self):
-        print("Area of Rectangle")
+# def make_sound(animal):
+#     animal.sound()
 
 
-class Triangle:
-    def area(self):
-        print("Area of Triangle")
+# d = Dog()
+# c = Cat()
+
+# make_sound(d)
+# make_sound(c)
 
 
-shapes = [Circle(), Rectangle(), Triangle()]
-
-for s in shapes:
-    s.area()
-
-
-from abc import ABC, abstractmethod
+# class Circle:
+#     def area(self):
+#         print("Area of Circle")
 
 
-class Shape(ABC):
-
-    @abstractmethod
-    def area(self):
-        pass
+# class Rectangle:
+#     def area(self):
+#         print("Area of Rectangle")
 
 
-class Rectangle(Shape):
-
-    def area(self):
-        print("Area of Rectangle")
-
-
-class Circle(Shape):
-
-    def area(self):
-        print("Area of Circle")
-
-    # pass
+# class Triangle:
+#     def area(self):
+#         print("Area of Triangle")
 
 
-r = Rectangle()
-c = Circle()
+# shapes = [Circle(), Rectangle(), Triangle()]
 
-r.area()
-c.area()
+# for s in shapes:
+#     s.area()
+
+
+# from abc import ABC, abstractmethod
+
+
+# class Shape(ABC):
+
+#     @abstractmethod
+#     def area(self):
+#         pass
+
+
+# class Rectangle(Shape):
+
+#     def area(self):
+#         print("Area of Rectangle")
+
+
+# class Circle(Shape):
+
+#     def area(self):
+#         print("Area of Circle")
+
+#     # pass
+
+
+# r = Rectangle()
+# c = Circle()
+
+# r.area()
+# c.area()
+
+"""
+class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+
+
+s1 = Student("Ram", 90)
+s2 = Student("Rahul", 80)
+
+print(s1.name, s1.marks)
+print(s2.name, s2.marks)
+
+
+class Student:
+    school_name = "ABC School"  # Class variable
+
+    def __init__(self, name):
+        self.name = name
+
+
+s1 = Student("Ansh")
+s2 = Student("Rahul")
+
+print(s1.school_name)
+print(s2.school_name)
+print(Student.school_name)
+
+
+class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+
+    def display(self):
+        print(self.name, self.marks)
+
+
+s1 = Student("Ram", 90)
+s1.display()
+
+
+class Student:
+    school = "ABC School"
+
+    def __init__(self, name):
+        self.name = name
+
+    @classmethod
+    def change_school(cls, new_name):
+        cls.school = new_name
+
+
+Student.change_school("XYZ School")
+
+print(Student.school)
+
+
+class MathUtils:
+
+    @staticmethod
+    def add(a, b):
+        return a + b
+
+
+print(MathUtils.add(5, 3))
+
+"""
+
+
+a = 10
+b = 20
+
+print(type(a))
+print(type(b))
+print(a + b)
+
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+
+    def __str__(self):
+        return f"Student Name: {self.name}"
+
+
+s = Student("Ram")
+print(s)
+
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+
+    def __repr__(self):
+        return f"Student('{self.name}')"
+
+
+s = Student("Ram")
+print(s)
+
+
+class MyList:
+    def __init__(self, items):
+        self.items = items
+
+    def __len__(self):
+        return len(self.items)
+
+
+obj = MyList([1, 2, 3, 4])
+print(len(obj))
+
+
+class Number:
+    def __init__(self, value):
+        self.value = value
+
+    def __add__(self, other):
+        return self.value + other.value
+
+
+n1 = Number(10)
+n2 = Number(20)
+
+print(n1 + n2)
+
+
+class Demo:
+    def __call__(self):
+        print("Object is called like function")
+
+
+d = Demo()
+d()
+
+
+class Outer:
+    def __init__(self):
+        print("Outer class object created")
+
+    class Inner:
+        def __init__(self):
+            print("Inner class object created")
+
+        def display(self):
+            print("This is inner class method")
+
+
+# Creating inner class object
+o = Outer()
+i = o.Inner()
+i.display()
+
+
+class College:
+    def __init__(self, name):
+        self.name = name
+
+    class Student:
+        def __init__(self, sname, marks):
+            self.sname = sname
+            self.marks = marks
+
+        def show(self):
+            print(self.sname, self.marks)
+
+
+c = College("007 College")
+s = College.Student("Ram", 90)
+
+print(c.name)
+s.show()
